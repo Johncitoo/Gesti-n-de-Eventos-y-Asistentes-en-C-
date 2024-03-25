@@ -1,9 +1,13 @@
+
 #include <iostream>
+#include <vector>
+#include "Event.h"
 
 using namespace std;
 
 int main()
 {
-    cout << "hola" << endl;
+    vector<Event> listEvent;
+
     return 0;
 }
