@@ -2,8 +2,9 @@
 
 #include "Attendee.h"
 #include <iostream>
-using namespace std
+using namespace std;
 
+Attendee::Attendee(){}
 
 
 

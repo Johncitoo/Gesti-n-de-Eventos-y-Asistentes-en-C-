@@ -9,6 +9,6 @@ Event::Event(){}
 
 
 void Event::addAttendee(Attendee atte) {
-
+    
 }
 

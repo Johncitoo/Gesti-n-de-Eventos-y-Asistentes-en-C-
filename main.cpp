@@ -9,5 +9,7 @@ int main()
 {
     vector<Event> listEvent;
 
+    cout << "hola" << endl;
+
     return 0;
 }
