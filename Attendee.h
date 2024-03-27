@@ -11,19 +11,19 @@ class Attendee {
 
     public:
 
-    Attendee();
+    Attendee(string,string,string,string);
 
     // GETTERS
-    void getTypeAttendee();
-    void getName();
-    void getOccupation();
-    void getCompany();
+    string getTypeAttendee();
+    string getName();
+    string getOccupation();
+    string getCompany();
     
     // SETTERS
 
-    string setTypeAttendee(string);
-    string settName(string);
-    string setOccupation(string);
-    string setCompany(string);
+    void setTypeAttendee(string);
+    void settName(string);
+    void setOccupation(string);
+    void setCompany(string);
 
 };
