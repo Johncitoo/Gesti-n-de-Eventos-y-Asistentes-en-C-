@@ -13,9 +13,11 @@ class Event {
     string location;
     string topic;
     float duration;
-    vector<Attendee> attendeeList;
+    vector<Attendee> listAttendee;
     
     public:
+
+    Event(string,string,string,float);
 
     void addAttendee(Attendee);
 

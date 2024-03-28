@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-Attendee::Attendee(string name,string typeAttendee,string occupation,string company){
+Attendee::Attendee(string typeAttendee,string name,string occupation,string company){
     this->name = name;
     this->typeAttendee = typeAttendee;
     this->occupation = occupation;
