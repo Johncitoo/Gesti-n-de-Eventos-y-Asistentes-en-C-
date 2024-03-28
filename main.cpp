@@ -103,6 +103,8 @@ void readTxt(vector<Event>& listEvent) {
         
     }
 
+    arch.close();
+
 
 };
 
