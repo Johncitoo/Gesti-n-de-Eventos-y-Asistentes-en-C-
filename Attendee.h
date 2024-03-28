@@ -22,7 +22,7 @@ class Attendee {
     // SETTERS
 
     void setTypeAttendee(string);
-    void settName(string);
+    void setName(string);
     void setOccupation(string);
     void setCompany(string);
 

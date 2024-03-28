@@ -19,6 +19,20 @@ class Event {
 
     Event(string,string,string,float);
 
+    // GETTERS
+    
+    string getType();
+    string geLocation();
+    string getTopic();
+    float getDuration();
+    
+    // SETTERS
+
+    void setType(string);
+    void setLocation(string);
+    void setTopic(string);
+    void setDuration(float);
+
     void addAttendee(Attendee);
 
 
