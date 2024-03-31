@@ -4,7 +4,7 @@ asistente-Maria Gomez-Analista de Datos-Empresa de Analisis de Datos
 asistente-Carlos Martinez-Gerente de Proyecto-Empresa de Soluciones Tecnologicas
 asistente-Laura Rodriguez-Disenadora UX-Empresa de Diseno
 asistente-Diego Lopez-Gerente de Marketing-Agencia de Marketing
-reunion;Sala de Juntas;Reunion de Equipo;2.0;3
+reunion;Sala de Juntas;Reunion de Equipo;2;3
 gerente-Alejandro Sanchez-Gerente Senior-Empresa Tecnologica
 empleado-Sofia Garcia-Desarrolladora de Software-Empresa de Soluciones de Software
 empleado-David Fernandez-Ingeniero de QA-Empresa de Innovaciones Tecnologicas

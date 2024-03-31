@@ -37,6 +37,7 @@ Event::Event(string type,string location,string topic,float duration){
 void Event::addAttendee(Attendee attendee) {
     if (listAttendee.size() < 201) {
         listAttendee.push_back(attendee);
+
     } else {
         cout << "No se pueden agregar más asistentes, lista llena" << endl;
     }
@@ -72,6 +73,8 @@ string Event::getTopic() { return topic; }
  * @return The `duration` variable is being returned.
  */
 float Event::getDuration() { return duration; }
+
+vector<Attendee> Event::getAttendees(){return listAttendee;}
 
 // Setters
 

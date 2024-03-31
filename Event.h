@@ -25,7 +25,7 @@ class Event {
     string geLocation();
     string getTopic();
     float getDuration();
-    
+    vector<Attendee> getAttendees();
     // SETTERS
 
     void setType(string);
