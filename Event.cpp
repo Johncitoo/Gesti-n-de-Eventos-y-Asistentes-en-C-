@@ -74,6 +74,11 @@ string Event::getTopic() { return topic; }
  */
 float Event::getDuration() { return duration; }
 
+/**
+ * The function `getDuration` returns the list of attendee of event.
+ * 
+ * @return The `listAttendee` variable is being returned.
+ */
 vector<Attendee> Event::getAttendees(){return listAttendee;}
 
 // Setters
