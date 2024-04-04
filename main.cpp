@@ -4,6 +4,7 @@
 #include <fstream>
 #include <sstream>
 #include <limits>
+#include <string>
 
 #include "Event.cpp"
 #include "Attendee.cpp"
@@ -29,6 +30,8 @@ void writeTxt(vector<Event>& listEvent);
 
 void options(vector<Event>& listEvent,int option);
 
+string findMostCommon(vector<Attendee> attendeers);
+
 int main()
 {
     cout<< "Hola mundo1"<<endl;
@@ -38,25 +41,7 @@ int main()
     cout<< "Hola mundo3"<<endl;
     writeTxt(listEvent);
     menu(listEvent);
-
-    
-    for (size_t i = 0; i < listEvent.size(); i++)
-    {
-        cout<<"------"<<listEvent[i].getType()<<"------"<<endl;
-
-        vector<Attendee> attendeers = listEvent[i].getAttendees();
-
-        cout<<"-----Participantes:-------"<<endl;
-        
-        for (size_t j = 0; j < attendeers.size(); j++)
-        {
-            
-            cout<<listEvent[i].getAttendees()[j].getName()<<endl;
-        }
-        cout<<attendeers.size()<<endl;
-    }
-    
-    cout<<"fin"<<endl;
+    cout<<"Fin del programa"<<endl;
 
     return 0;
 }
@@ -88,7 +73,7 @@ void readTxt(vector<Event>& listEvent) {
     string* name = new string;
     string* occupation = new string;
     string* company = new string;
-    
+    int* age = new int;
 
     while (getline(arch, line)) {
 
@@ -107,10 +92,9 @@ void readTxt(vector<Event>& listEvent) {
 
         Event event(*type,*location,*topic,*duration);
         
-
-
+        int iterator = stoi(parts[4]);
         
-        for (int i = 0; i < stoi(parts[4]); i++)
+        for (int i = 0; i < iterator; i++)
         {
 
             parts.clear();
@@ -127,9 +111,9 @@ void readTxt(vector<Event>& listEvent) {
             *name = parts[1];
             *occupation = parts[2];
             *company = parts[3];
-
-
-            Attendee attendee(*typeAttendee,*name,*occupation,*company);
+            *age = stoi(parts[4]);
+            
+            Attendee attendee(*typeAttendee,*name,*occupation,*company,*age);
             event.addAttendee(attendee);
 
             parts.clear();
@@ -153,7 +137,8 @@ void readTxt(vector<Event>& listEvent) {
     delete name;
     delete occupation;
     delete company;
-    
+    delete age;
+
     arch.close();
 
     
@@ -184,12 +169,31 @@ void writeTxt(vector<Event>& listEvent){
         for (size_t j = 0; j < attendeers.size(); j++)
         {
             
-            file<<attendeers[j].getTypeAttendee()<<"-"<<attendeers[j].getName()<<"-"<<attendeers[j].getOccupation()<<"-"<<attendeers[j].getCompany()<<endl;
+            file<<attendeers[j].getTypeAttendee()<<"-"<<attendeers[j].getName()<<"-"<<attendeers[j].getOccupation()<<"-"<<attendeers[j].getCompany()<<"-"<<attendeers[j].getAge()<<endl;
         }
 
     }
 
 };
+
+//Find the most common ocupattion
+string findMostCommon(vector<Attendee> attendeers){
+
+    vector<string> ocupattion;
+    vector<int> intOcupattion;
+
+    for (size_t j = 0; j < attendeers.size(); j++)
+        {
+            
+            cout<<"Tipo: "<<attendeers[j].getTypeAttendee()<<"/Nombre: "<<attendeers[j].getName()<<"/Ocupacion: "<<attendeers[j].getOccupation()<<"/Compania: "<<attendeers[j].getCompany()<<"/Edad: "<<attendeers[j].getAge()<<endl;
+            
+            
+            
+            
+        }
+
+};
+
 //This function is responsible for managing the procedures that must be carried out given the selection of one of the menu options.
 void options(vector<Event>& listEvent,int option){
 
@@ -252,7 +256,11 @@ void options(vector<Event>& listEvent,int option){
             string company;
             cin>>company;
 
-            Attendee attendee(typeAttendee,name,occupation,company);
+            cout<<"Edad"<<endl;
+            int age;
+            cin>>age;
+
+            Attendee attendee(typeAttendee,name,occupation,company,age);
             event.addAttendee(attendee);
 
         }
@@ -318,8 +326,12 @@ void options(vector<Event>& listEvent,int option){
             string company;
             cin>>company;
 
+            cout<<"Edad"<<endl;
+            int age;
+            cin>>age;
+
             //Create and add the new attendee
-            Attendee attendee(typeAttendee,name,occupation,company);
+            Attendee attendee(typeAttendee,name,occupation,company,age);
             listEvent[option].addAttendee(attendee);
 
         }
@@ -335,7 +347,7 @@ void options(vector<Event>& listEvent,int option){
 
         for (size_t i = 0; i < listEvent.size(); i++)
     {
-        cout<<i<<") "<<listEvent[i].getType()<<";"<<listEvent[i].geLocation()<<";"<<listEvent[i].getTopic()<<";"<<listEvent[i].getDuration()<<";"<<listEvent[i].getAttendees().size()<<endl;
+        cout<<i<<") Tipo: "<<listEvent[i].getType()<<"/Ubicacion: "<<listEvent[i].geLocation()<<"/Tema: "<<listEvent[i].getTopic()<<"/Duracion: "<<listEvent[i].getDuration()<<"hrs"<<endl;
 
     }
         int option;
@@ -347,7 +359,7 @@ void options(vector<Event>& listEvent,int option){
         cout<<"Error, ingrese una opcion valida"<<endl;
         for (size_t i = 0; i < listEvent.size(); i++)
         {
-        cout<<i<<") "<<listEvent[i].getType()<<";"<<listEvent[i].geLocation()<<";"<<listEvent[i].getTopic()<<";"<<listEvent[i].getDuration()<<";"<<listEvent[i].getAttendees().size()<<endl;
+        cout<<i<<") Tipo: "<<listEvent[i].getType()<<"/Ubicacion: "<<listEvent[i].geLocation()<<"/Tema: "<<listEvent[i].getTopic()<<"/Duracion: "<<listEvent[i].getDuration()<<"hrs"<<endl;
 
         }
         cin>>option;
@@ -358,9 +370,58 @@ void options(vector<Event>& listEvent,int option){
         for (size_t j = 0; j < listEvent[option].getAttendees().size(); j++)
         {
             
-            cout<<attendeers[j].getTypeAttendee()<<"-"<<attendeers[j].getName()<<"-"<<attendeers[j].getOccupation()<<"-"<<attendeers[j].getCompany()<<endl;
+            cout<<"Tipo: "<<attendeers[j].getTypeAttendee()<<"/Nombre: "<<attendeers[j].getName()<<"/Ocupacion: "<<attendeers[j].getOccupation()<<"/Compania: "<<attendeers[j].getCompany()<<"/Edad: "<<attendeers[j].getAge()<<endl;
             
         }
+
+        break;
+        
+    }
+
+    case 4: {
+
+        cout<<"---Informe sobre eventos y asistentes registrados---"<<endl;
+        
+        cout<<"Eventos registrados:"<<endl;
+        
+        int averageAttendees = 0;
+
+        //print the events whit his information.
+        for (size_t i = 0; i < listEvent.size(); i++)
+    {
+        cout<<i+1<<") Tipo: "<<listEvent[i].getType()<<"/Ubicacion: "<<listEvent[i].geLocation()<<"/Tema: "<<listEvent[i].getTopic()<<"/Duracion: "<<listEvent[i].getDuration()<<"hrs"<<endl;
+
+    }
+        
+        cout<<"---Asistentes registrados para cada evento: ---"<<endl;
+        
+        //print the attendeers whit his information.
+
+        for (size_t i = 0; i < listEvent.size(); i++)
+    {
+        cout<<i+1<<") Tipo: "<<listEvent[i].getType()<<"/Ubicacion: "<<listEvent[i].geLocation()<<"/Tema: "<<listEvent[i].getTopic()<<endl;
+
+        vector<Attendee> attendeers = listEvent[i].getAttendees();
+
+        cout<<"-----Asistentes:-------"<<endl;
+        
+        int averageAgeAttendeers = 0;
+
+        for (size_t j = 0; j < attendeers.size(); j++)
+        {
+            
+            cout<<"Tipo: "<<attendeers[j].getTypeAttendee()<<"/Nombre: "<<attendeers[j].getName()<<"/Ocupacion: "<<attendeers[j].getOccupation()<<"/Compania: "<<attendeers[j].getCompany()<<"/Edad: "<<attendeers[j].getAge()<<endl;
+            averageAgeAttendeers += attendeers[j].getAge();
+            
+        }
+        averageAttendees += attendeers.size();
+        cout<<"---Numero total de asistentes al evento: "<<attendeers.size()<<" ---"<<endl;
+        cout<<"---La edad promedio de los asistentes es de: "<<averageAgeAttendeers/attendeers.size()<<" anos ---"<<endl;
+
+    }
+    
+    cout<<"---El promedio de asistentes por evento es de : "<<averageAttendees/listEvent.size()<<" ---"<<endl;
+
     }
 
     default:
@@ -402,7 +463,5 @@ void menu(vector<Event>& listEvent) {
     {
         menu(listEvent);
     }
-    
-    cout<<"Fin del programa"<<endl;
     
 }

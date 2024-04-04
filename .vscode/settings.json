@@ -1,12 +1,6 @@
 {
   "files.associations": {
-    "new": "cpp",
-    "iostream": "cpp",
-    "ostream": "cpp",
-    "array": "cpp",
-    "initializer_list": "cpp",
-    "utility": "cpp",
-    "limits": "cpp"
+    "iostream": "cpp"
   },
   "C_Cpp_Runner.msvcBatchPath": "",
   "C_Cpp_Runner.cCompilerPath": "gcc",

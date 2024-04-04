@@ -4,12 +4,12 @@
 #include <iostream>
 using namespace std;
 
-Attendee::Attendee(string typeAttendee,string name,string occupation,string company){
+Attendee::Attendee(string typeAttendee,string name,string occupation,string company,int age){
     this->name = name;
     this->typeAttendee = typeAttendee;
     this->occupation = occupation;
     this->company = company;
-    
+    this->age = age;
 }
 
 string Attendee::getTypeAttendee() {
@@ -25,6 +25,9 @@ string Attendee::getCompany() {
     return company;
 }
 
+int Attendee::getAge(){
+    return age;
+}
 
 
 

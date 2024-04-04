@@ -8,17 +8,19 @@ class Attendee {
     string name;
     string occupation;
     string company;
+    int age;
 
     public:
 
-    Attendee(string,string,string,string);
+    Attendee(string,string,string,string,int);
 
     // GETTERS
     string getTypeAttendee();
     string getName();
     string getOccupation();
     string getCompany();
-    
+    int getAge();
+
     // SETTERS
 
     void setTypeAttendee(string);
