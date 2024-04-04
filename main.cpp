@@ -211,64 +211,45 @@ string findMostCommon(vector<Attendee> attendeers){
     vector<string> maxRepString;
     
 
-    if (ocupattion.size() >= 3)
-    {
-        for (int i = 0; i < ocupattion.size(); i++)
-    {
-        for (int j = 0; j < intOcupattion.size(); j++)
-        {
-            if (intOcupattion[j] > maxAux && maxAux == 0)
-            {
-                maxAux = intOcupattion[j];
-                indAux = j;
+    if (ocupattion.size() > 3) {
 
-            } else if (intOcupattion[j] > maxAux) {
-                maxAux = intOcupattion[j];
-                indAux = j;
+            for (int i = 0; i < 3; i++) {
+
+                for (int j = 0; j < intOcupattion.size(); j++) {
+
+                    if (intOcupattion[j] > maxAux && maxAux == 0) {
+                        maxAux = intOcupattion[j];
+                        indAux = j;
+
+                    } else if (intOcupattion[j] > maxAux) {
+                        maxAux = intOcupattion[j];
+                        indAux = j;
+                        
+                    }
+
+                }
+
+                maxRep.push_back(maxAux);
+                maxRepString.push_back(ocupattion[indAux]);
+                maxAux = 0;
+                intOcupattion[indAux] = 0;
+                ocupattion[indAux] = "";
                 
-            }
-
         }
 
-        maxRep.push_back(maxAux);
-        maxRepString.push_back(ocupattion[indAux]);
-        maxAux = 0;
-        intOcupattion[indAux] = 0;
-        ocupattion[indAux] = "";
-        
-    }
+        for (int i = 0; i < maxRepString.size(); i++) {
+            cout << maxRepString[i]<< endl;
+        }
     } else {
-        for (int i = 0; i < 3; i++)
-    {
-        for (int j = 0; j < intOcupattion.size(); j++)
+        for (int i = 0; i < ocupattion.size(); i++)
         {
-            if (intOcupattion[j] > maxAux && maxAux == 0)
-            {
-                maxAux = intOcupattion[j];
-                indAux = j;
-
-            } else if (intOcupattion[j] > maxAux) {
-                maxAux = intOcupattion[j];
-                indAux = j;
-                
-            }
-
+            cout << ocupattion[i] << endl;
         }
-
-        maxRep.push_back(maxAux);
-        maxRepString.push_back(ocupattion[indAux]);
-        maxAux = 0;
-        intOcupattion[indAux] = 0;
-        ocupattion[indAux] = "";
         
-    }
     }
     
 
-    for (int i = 0; i < ocupattion.size(); i++)
-    {
-        cout << "holaaa"<<ocupattion[i] << intOcupattion[i] << endl;
-    }
+    
     
 
 };
