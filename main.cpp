@@ -5,6 +5,7 @@
 #include <sstream>
 #include <limits>
 #include <string>
+#include <limits>
 
 #include "Event.cpp"
 #include "Attendee.cpp"
@@ -182,15 +183,93 @@ string findMostCommon(vector<Attendee> attendeers){
     vector<string> ocupattion;
     vector<int> intOcupattion;
 
-    for (size_t j = 0; j < attendeers.size(); j++)
+    for (int j = 0; j < attendeers.size(); j++)
         {
-            
-            cout<<"Tipo: "<<attendeers[j].getTypeAttendee()<<"/Nombre: "<<attendeers[j].getName()<<"/Ocupacion: "<<attendeers[j].getOccupation()<<"/Compania: "<<attendeers[j].getCompany()<<"/Edad: "<<attendeers[j].getAge()<<endl;
-            
-            
-            
+            bool foundOcuptaion = false;
+            //cout<<"Tipo: "<<attendeers[j].getTypeAttendee()<<"/Nombre: "<<attendeers[j].getName()<<"/Ocupacion: "<<attendeers[j].getOccupation()<<"/Compania: "<<attendeers[j].getCompany()<<"/Edad: "<<attendeers[j].getAge()<<endl;
+            for (int k = 0; k < ocupattion.size(); k++)
+            {
+                if (ocupattion[k] == attendeers[j].getOccupation())
+                {
+                    foundOcuptaion = true;
+                    intOcupattion[j]=+1;
+                }
+                
+            }
+
+            if (!foundOcuptaion)
+            {
+                ocupattion.push_back(attendeers[j].getCompany());
+                intOcupattion.push_back(1);
+            }     
             
         }
+
+    int maxAux = 0;
+    int indAux = 0;
+    vector<int> maxRep;
+    vector<string> maxRepString;
+    
+
+    if (ocupattion.size() >= 3)
+    {
+        for (int i = 0; i < ocupattion.size(); i++)
+    {
+        for (int j = 0; j < intOcupattion.size(); j++)
+        {
+            if (intOcupattion[j] > maxAux && maxAux == 0)
+            {
+                maxAux = intOcupattion[j];
+                indAux = j;
+
+            } else if (intOcupattion[j] > maxAux) {
+                maxAux = intOcupattion[j];
+                indAux = j;
+                
+            }
+
+        }
+
+        maxRep.push_back(maxAux);
+        maxRepString.push_back(ocupattion[indAux]);
+        maxAux = 0;
+        intOcupattion[indAux] = 0;
+        ocupattion[indAux] = "";
+        
+    }
+    } else {
+        for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < intOcupattion.size(); j++)
+        {
+            if (intOcupattion[j] > maxAux && maxAux == 0)
+            {
+                maxAux = intOcupattion[j];
+                indAux = j;
+
+            } else if (intOcupattion[j] > maxAux) {
+                maxAux = intOcupattion[j];
+                indAux = j;
+                
+            }
+
+        }
+
+        maxRep.push_back(maxAux);
+        maxRepString.push_back(ocupattion[indAux]);
+        maxAux = 0;
+        intOcupattion[indAux] = 0;
+        ocupattion[indAux] = "";
+        
+    }
+    }
+    
+
+    for (int i = 0; i < ocupattion.size(); i++)
+    {
+        cout << ocupattion[i] << intOcupattion[i] << endl;
+    }
+    
 
 };
 
@@ -387,19 +466,17 @@ void options(vector<Event>& listEvent,int option){
         int averageAttendees = 0;
 
         //print the events whit his information.
-        for (size_t i = 0; i < listEvent.size(); i++)
-    {
-        cout<<i+1<<") Tipo: "<<listEvent[i].getType()<<"/Ubicacion: "<<listEvent[i].geLocation()<<"/Tema: "<<listEvent[i].getTopic()<<"/Duracion: "<<listEvent[i].getDuration()<<"hrs"<<endl;
+        for (size_t i = 0; i < listEvent.size(); i++) {
+            cout<<i+1<<". Tipo: "<<listEvent[i].getType()<<"/Ubicacion: "<<listEvent[i].geLocation()<<"/Tema: "<<listEvent[i].getTopic()<<"/Duracion: "<<listEvent[i].getDuration()<<"hrs"<<endl;
 
-    }
+        }
         
         cout<<"---Asistentes registrados para cada evento: ---"<<endl;
         
         //print the attendeers whit his information.
 
-        for (size_t i = 0; i < listEvent.size(); i++)
-    {
-        cout<<i+1<<") Tipo: "<<listEvent[i].getType()<<"/Ubicacion: "<<listEvent[i].geLocation()<<"/Tema: "<<listEvent[i].getTopic()<<endl;
+        for (size_t i = 0; i < listEvent.size(); i++) {
+            cout<<i+1<<") Tipo: "<<listEvent[i].getType()<<"/Ubicacion: "<<listEvent[i].geLocation()<<"/Tema: "<<listEvent[i].getTopic()<<endl;
 
         vector<Attendee> attendeers = listEvent[i].getAttendees();
 
