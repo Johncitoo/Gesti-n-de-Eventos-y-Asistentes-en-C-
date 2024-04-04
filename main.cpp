@@ -267,7 +267,7 @@ string findMostCommon(vector<Attendee> attendeers){
 
     for (int i = 0; i < ocupattion.size(); i++)
     {
-        cout << ocupattion[i] << intOcupattion[i] << endl;
+        cout << "holaaa"<<ocupattion[i] << intOcupattion[i] << endl;
     }
     
 
@@ -494,7 +494,8 @@ void options(vector<Event>& listEvent,int option){
         averageAttendees += attendeers.size();
         cout<<"---Numero total de asistentes al evento: "<<attendeers.size()<<" ---"<<endl;
         cout<<"---La edad promedio de los asistentes es de: "<<averageAgeAttendeers/attendeers.size()<<" anos ---"<<endl;
-
+        cout<<"Ocupaciones mas comunes"<<endl;
+        findMostCommon(attendeers);
     }
     
     cout<<"---El promedio de asistentes por evento es de : "<<averageAttendees/listEvent.size()<<" ---"<<endl;
