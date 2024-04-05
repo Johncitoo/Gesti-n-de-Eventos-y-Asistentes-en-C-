@@ -10,5 +10,7 @@ Juan Javier Contreras Ramirez
 21.166.623-4
 juan.contreras03@alumnos.ucn.cl
 
-Ver Info.txt en esta confirmación
+OBJETOS CREADOS AL INICIO
+
+https://github.com/Johncitoo/Gesti-n-de-Eventos-y-Asistentes-en-C-/blob/main/output/Info.txt
 
