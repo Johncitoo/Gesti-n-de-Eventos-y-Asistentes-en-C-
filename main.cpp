@@ -400,7 +400,8 @@ void options(vector<Event>& listEvent,int option){
     
     case 3:{
 
-        cout<<"Seleccione el evento del cual quiere ver la lista de asistentes:"<<endl;
+        cout<<"Seleccione el evento del cual quiere ver la lista de asistentes: "  <<endl;
+        cout<< " " <<endl;
 
         for (size_t i = 0; i < listEvent.size(); i++)
     {
@@ -458,7 +459,9 @@ void options(vector<Event>& listEvent,int option){
 
         vector<Attendee> attendeers = listEvent[i].getAttendees();
 
-        cout<<"-----Asistentes:-------"<<endl;
+        cout<< " " <<endl;
+        cout<<"----- Asistentes -------"<<endl;
+        cout<< " " <<endl;
         
         int averageAgeAttendeers = 0;
 
@@ -470,13 +473,19 @@ void options(vector<Event>& listEvent,int option){
             
         }
         averageAttendees += attendeers.size();
-        cout<<"---Numero total de asistentes al evento: "<<attendeers.size()<<" ---"<<endl;
-        cout<<"---La edad promedio de los asistentes es de: "<<averageAgeAttendeers/attendeers.size()<<" anos ---"<<endl;
-        cout<<"Ocupaciones mas comunes"<<endl;
+
+        cout<< " " <<endl;
+        cout<<"--- Numero total de asistentes al evento: "<<attendeers.size()<<" ---"<<endl;
+        cout<< " " <<endl;
+        cout<<"--- La edad promedio de los asistentes es de: "<<averageAgeAttendeers/attendeers.size()<<" anos ---"<<endl;
+        cout<< " " <<endl;
+        cout<<"--- Ocupaciones mas comunes"<<endl;
+        cout<< " " <<endl;
         findMostCommon(attendeers);
+        cout<< " " <<endl;
     }
     
-    cout<<"---El promedio de asistentes por evento es de : "<<averageAttendees/listEvent.size()<<" ---"<<endl;
+    cout<<"--- El promedio de asistentes por evento es de : "<<averageAttendees/listEvent.size()<<" ---"<<endl;
 
     }
 
@@ -488,23 +497,32 @@ void options(vector<Event>& listEvent,int option){
 
 void menu(vector<Event>& listEvent) {
     
-    cout<< "---Seleccione la accion que desea realizar---"<<endl;
+    cout<< " " <<endl;
+    cout<< "--- Seleccione la accion que desea realizar ---" <<endl;
+    cout<< " " <<endl;
     cout<< "1) Creacion de un nuevo evento"<<endl;
     cout<< "2) Registrar asistentes a un evento"<<endl;
-    cout<< "3) Ver la lista de asistentes"<<endl;
+    cout<< "3) Ver la lista de asistentes"<<endl;   
     cout<< "4) Mostrar un informe"<<endl;
 
     int option;
+    cout<< " " <<endl;
+    cout<< "Ingrese la opcion: " <<endl;
+    cout<< " " <<endl;
     cin>>option;
     //error control in case of entering invalid data
     while (option!=1 && option!=2 && option!=3 && option!=4)
     {
         cout<<"Es distinto de 0"<<endl;
-        cout<< "---Error, Seleccione una opcion valida---"<<endl;
-    cout<< "1) Creacion de un nuevo evento"<<endl;
-    cout<< "2) Registrar asistentes a un evento"<<endl;
-    cout<< "3) Ver la lista de asistentes"<<endl;
-    cout<< "4) Mostrar un informe"<<endl;
+        cout<< "--- Error, Seleccione una opcion valida ---"<<endl;
+        cout<< " " <<endl;
+        cout<< "1) Creacion de un nuevo evento"<<endl;
+        cout<< "2) Registrar asistentes a un evento"<<endl;
+        cout<< "3) Ver la lista de asistentes"<<endl;
+        cout<< "4) Mostrar un informe"<<endl;
+        cout<< " " <<endl;
+        cout<< "Ingrese la opcion: " <<endl;
+        cout<< " " <<endl;
         cin>>option;
     }
     
@@ -513,6 +531,9 @@ void menu(vector<Event>& listEvent) {
     cout<<"Desea realizar otra accion?"<<endl;
     cout<<"1) Para si"<<endl;
     cout<<"2) No"<<endl;
+    cout<< " " <<endl;
+    cout<< "Ingrese la opcion: " <<endl;
+    cout<< " " <<endl;
     cin>>option;
     
     if (option == 1)
