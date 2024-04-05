@@ -9,3 +9,6 @@ cristian.urqueta@alumnos.ucn.cl
 Juan Javier Contreras Ramirez
 21.166.623-4
 juan.contreras03@alumnos.ucn.cl
+
+Ver Info.txt en esta confirmación
+

@@ -35,11 +35,8 @@ string findMostCommon(vector<Attendee> attendeers);
 
 int main()
 {
-    cout<< "Hola mundo1"<<endl;
     vector<Event> listEvent;
-    cout<< "Hola mundo2"<<endl;
     readTxt(listEvent);
-    cout<< "Hola mundo3"<<endl;
     writeTxt(listEvent);
     menu(listEvent);
     cout<<"Fin del programa"<<endl;
