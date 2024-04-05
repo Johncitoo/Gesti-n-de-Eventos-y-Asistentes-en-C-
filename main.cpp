@@ -339,7 +339,6 @@ void options(vector<Event>& listEvent,int option){
         int option;
         cin>>option;
 
-        cout<<listEvent.size()-1<<"---"<<option<<endl;
     //error control in case of entering invalid data
     while (option>listEvent.size()-1 || option<0)
     {
